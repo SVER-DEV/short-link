@@ -1,10 +1,14 @@
+import { Shorterbutton } from "../../components/shorter";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col grid-cols-1 p-24 space-y-10">
+    <main className="flex min-h-screen flex-col grid-cols-1 p-12 space-y-10">
       <section>
         <h1 className="text-6xl font-bold">서비스명</h1>
-        <h2 className="mt-4 text-2xl">외우기 쉬운 간단 단축 주소 서비스 ✨</h2>
-        <div className="mb-8"></div>
+        <h2 className="mt-4 text-2xl">
+          외우기 쉽고 간단한 <br />
+          단축 주소 서비스 ✨
+        </h2>
       </section>
       <section>
         <h2 className="my-2 text-2xl flex">
@@ -64,14 +68,7 @@ export default function Home() {
           </svg>
           링크 단축하기
         </h2>
-        <input
-          className="relative mt-2 rounded-md shadow-sm p-4 bg-gray-200 "
-          placeholder="링크를 입력하세요"
-          type="text"
-        ></input>
-        <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold p-4 rounded">
-          단축하기
-        </button>
+        <Shorterbutton />
       </section>
       <section>
         <h1 className="mt-5 font-bold">
