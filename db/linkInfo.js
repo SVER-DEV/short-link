@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 mongoose
   .connect(
-    "mongodb+srv://jihyukadminaccount:ruswkgml0000!@cluster0.iqbmq.mongodb.net/"
+    process.env.DB_URL
   )
   .catch((error) => console.log(error));
 
