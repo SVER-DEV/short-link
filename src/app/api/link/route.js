@@ -18,6 +18,11 @@ export async function POST(req) {
 
   const originalUrl = requestBody["originalUrl"];
 
+  let expUrl = /^http[s]?:\/\/([\S]{3,})/i;
+  if (!expUrl.test(originalUrl)) {
+    return NextResponse.json("값이 올바르지 않습니다.");
+  }
+
   const randomString = (length) => {
     const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
     const result = [];

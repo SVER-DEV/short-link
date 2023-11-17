@@ -4,6 +4,7 @@ import { useState } from "react";
 export function Shorterbutton() {
   const [originalUrl, setOriginalUrl] = useState("");
   const [shortenedUrl, setShortenedUrl] = useState("");
+  const [errorMessage, setError] = useState("");
 
   const defaultUrl = "https://google.com"; // Replace with your desired default URL
   const urlToShorten = originalUrl.trim() || defaultUrl;
@@ -22,9 +23,12 @@ export function Shorterbutton() {
 
       if (response.ok) {
         const data = await response.json();
+        if (data == "값이 올바르지 않습니다.") {
+          return setError(data);
+        }
         setShortenedUrl(data);
       } else {
-        console.error("단축에 실패했습니다.");
+        return setError("값이 올바르지 않습니다.");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -49,6 +53,10 @@ export function Shorterbutton() {
       >
         단축하기
       </button>
+      {/* Display error message in red if available */}
+      {errorMessage && (
+        <div className="mt-2 text-red-500 font-bold">{errorMessage}</div>
+      )}
       {shortenedUrl && (
         <div className="mt-2 text-green-500 font-bold">
           https://example.com/{shortenedUrl}
